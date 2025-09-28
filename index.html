@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HR Nexus - AI-Powered HR Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'brand-primary': '#4f46e5',
+              'brand-secondary': '#7c3aed',
+              'brand-light': 'rgba(79, 70, 229, 0.1)',
+              'brand-dark': '#3730a3',
+              'status-active': '#10b981',
+              'status-inactive': '#f87171',
+              'risk-low': '#22c55e',
+              'risk-medium': '#f97316',
+              'risk-high': '#ef4444',
+              // Dark mode colors
+              dark: {
+                bg: '#111827', // slate-900
+                'bg-secondary': '#1f2937', // slate-800
+                card: '#374151', // slate-700
+                border: '#4b5563', // slate-600
+                text: '#d1d5db', // slate-300
+                'text-secondary': '#9ca3af', // slate-400
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <script>
+      // Avoids a flash of the wrong theme
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.2.1"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-50 dark:bg-dark-bg transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
